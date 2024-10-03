@@ -237,17 +237,21 @@
             podaj a (w metrach): <input type="float" name="a">
             podaj b (w metrach): <input type="float" name="b">
             podaj h (w metrach): <input type="float" name="h">
+            podaj w ilu % chcesz aby było napełnione (0-100): <input type="float" name="procenty">
             <input type="submit" value="ŁOK">
         </form>
 
             <?php
+            $procenty = 100;
             if (!empty($_POST["a"]) && !empty($_POST["b"]) && !empty($_POST["h"])) {
-            $a = $_POST["a"];
-            $b = $_POST["b"];
-            $h = $_POST["h"];
+                $a = $_POST["a"];
+                $b = $_POST["b"];
+                $h = $_POST["h"];
+                if(!empty($_POST["procenty"]))
+                    $procenty = $_POST["procenty"];
 
-            $obj = $a * $b * $h;
-            echo $obj. " litrów";
+                $obj = $a * $b * $h * $procenty/100;
+                echo $obj. " litrów";
             }
             ?>
         
