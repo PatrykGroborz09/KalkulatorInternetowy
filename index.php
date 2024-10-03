@@ -228,8 +228,28 @@
         if (!empty($_POST["cukierki"]) && !empty($_POST["ludzie"])) {
         $c = $_POST["cukierki"];
         $l = $_POST["ludzie"];
-        echo $c % $l." zostalo cukierokow";
+        echo "zostalo ".$c % $l."  cukierkow<br>";
+        echo  "kazda osoba dostała ". floor($c / $l). " cukierki";
         }
         ?>
+        <h2>kalkulator objętości</h2>
+        <form method="post">
+            podaj a (w metrach): <input type="float" name="a">
+            podaj b (w metrach): <input type="float" name="b">
+            podaj h (w metrach): <input type="float" name="h">
+            <input type="submit" value="ŁOK">
+        </form>
+
+            <?php
+            if (!empty($_POST["a"]) && !empty($_POST["b"]) && !empty($_POST["h"])) {
+            $a = $_POST["a"];
+            $b = $_POST["b"];
+            $h = $_POST["h"];
+
+            $obj = $a * $b * $h;
+            echo $obj. " litrów";
+            }
+            ?>
+        
 </body>
 </html>
